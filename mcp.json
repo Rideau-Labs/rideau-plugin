@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "rideau": {
+      "type": "streamable-http",
+      "url": "https://mcp.rideaulabs.com/mcp"
+    }
+  }
+}

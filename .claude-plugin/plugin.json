@@ -1,0 +1,23 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "rideau",
+  "version": "0.1.0",
+  "license": "LicenseRef-RideauLabs-Proprietary",
+  "description": "Canadian legislative and policy intelligence: what Parliament said, who is lobbying, what government is buying, and what the press reported \u2014 with the eight Rideau government-relations workflows as skills.",
+  "author": {
+    "name": "Rideau Labs",
+    "url": "https://rideaulabs.com"
+  },
+  "homepage": "https://rideaulabs.com",
+  "repository": "https://github.com/rideau-labs/rideau-plugin",
+  "keywords": [
+    "canada",
+    "parliament",
+    "hansard",
+    "government-relations",
+    "public-affairs",
+    "lobbying",
+    "procurement",
+    "policy"
+  ]
+}

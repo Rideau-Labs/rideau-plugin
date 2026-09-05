@@ -1,0 +1,34 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "rideau-labs",
+  "owner": {
+    "name": "Rideau Labs",
+    "url": "https://rideaulabs.com"
+  },
+  "metadata": {
+    "description": "Rideau Labs — Canada-first legislative and policy intelligence, delivered over MCP."
+  },
+  "plugins": [
+    {
+      "name": "rideau",
+      "source": "./",
+      "description": "Canadian legislative and policy intelligence: what Parliament said, who is lobbying, what government is buying, and what the press reported — with the eight Rideau government-relations workflows as skills.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Rideau Labs",
+        "url": "https://rideaulabs.com"
+      },
+      "homepage": "https://rideaulabs.com",
+      "keywords": [
+        "canada",
+        "parliament",
+        "hansard",
+        "government-relations",
+        "public-affairs",
+        "lobbying",
+        "procurement",
+        "policy"
+      ]
+    }
+  ]
+}

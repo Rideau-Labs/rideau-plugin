@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rideau": {
+      "type": "http",
+      "url": "https://mcp.rideaulabs.com/mcp"
+    }
+  }
+}
