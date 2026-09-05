@@ -58,6 +58,12 @@ plugin grants no access on its own — every account is authorised at the server
 Rideau is a commercial service. An account is required, and what you can reach is
 granted per corpus. Talk to us at [rideaulabs.com](https://rideaulabs.com).
 
+## Licence
+
+Proprietary. You may install this plugin and use it to reach the Rideau service; the
+skill documents are not licensed for copying, modification, redistribution, or use in a
+competing product. See [LICENSE](LICENSE).
+
 ## About these skills
 
 The eight skills are **generated** from the same prompt library the MCP server serves
