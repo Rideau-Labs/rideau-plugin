@@ -1,0 +1,38 @@
+{
+  "name": "rideau",
+  "version": "0.1.0",
+  "description": "Canadian legislative and policy intelligence: what Parliament said, who is lobbying, what government is buying, and what the press reported \u2014 with the eight Rideau government-relations workflows as skills.",
+  "author": {
+    "name": "Rideau Labs",
+    "url": "https://rideaulabs.com"
+  },
+  "homepage": "https://rideaulabs.com",
+  "repository": "https://github.com/rideau-labs/rideau-plugin",
+  "license": "LicenseRef-RideauLabs-Proprietary",
+  "keywords": [
+    "canada",
+    "parliament",
+    "hansard",
+    "government-relations",
+    "public-affairs",
+    "lobbying",
+    "procurement",
+    "policy"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./mcp.json",
+  "interface": {
+    "displayName": "Rideau",
+    "shortDescription": "Canadian legislative and policy intelligence, in your assistant.",
+    "longDescription": "One knowledge graph over what government says (Hansard and committee proceedings, ahead of the official record), who is lobbying whom (the federal Registry of Lobbyists), what government buys (federal and provincial procurement), and what the press reports. Adds the eight Rideau government-relations workflows as skills. Requires a Rideau account.",
+    "developerName": "Rideau Labs",
+    "category": "research",
+    "capabilities": [
+      "skills",
+      "mcp"
+    ],
+    "websiteURL": "https://rideaulabs.com",
+    "privacyPolicyURL": "https://rideaulabs.com/privacy",
+    "termsOfServiceURL": "https://rideaulabs.com/terms"
+  }
+}
