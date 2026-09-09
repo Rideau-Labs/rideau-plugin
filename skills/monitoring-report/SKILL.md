@@ -89,6 +89,35 @@ not on this account — so the 'who is in their ear' section is missing rather t
 empty" is a good answer. Quietly returning four sections where the reader expects
 five is not.
 
+**6. Too big to hand over is not the same as unavailable. Answer the meeting, do not
+page it.** One committee sitting runs to most of a megabyte of transcript, and this
+gateway refuses to serve more than 200 000 bytes at once. The refusal is the platform
+working: a truncated transcript reads exactly like a complete one, and the reader has
+no way to tell. So "read me this meeting" is answered **summary first**.
+`get_event_summary()` is what happened (the narrative, the topics, the bills and the
+key moments) in a few thousand bytes, under one percent of the transcript it covers.
+Lead with it, then quote the two or three exchanges that matter, each pulled by one
+targeted read. Those reads are filtered in the database and always have been:
+`event_utterances()` takes `person_id_or_slug` for one member's turns, `panel_index`
+for one witness panel and `language` for one side of a bilingual sitting, and
+`get_event(include_utterances=True)` reads the transcript straight through from any
+`utterance_offset`. ⚠️ **Both default to a page of 200, and on a real hearing that
+page is over the cap and the call is refused, so you get nothing rather than a lot:
+bound every one of them.** `limit` around 25 on `event_utterances()`,
+`utterance_limit` around 25 on `get_event()`. ⚠️ **And to reach inside a meeting you
+have already identified, go to `event_utterances()` on its id, not to
+`search_utterances()`.** Search is how you find a meeting or follow a theme across
+many, and it answers a narrower question than it looks like it does: it matches on
+every word of the query, so a whole topic phrase finds nothing, and its date window
+filters the individual turn, which on an evening sitting carries the NEXT day's UTC
+timestamp. Offer these reads as what they are, the way a person reads a hearing, and
+never as a consolation prize after a failed call. **Never open an answer with a paging
+plan.** A reader who asked what happened at a hearing and got a menu of ways to fetch
+it in pieces has been handed the work back, and that is the whole defect this rule
+exists to stop. If they then ask for the verbatim record end to end, say plainly that
+it arrives in bounded pages and that a single downloadable document is not something
+this surface hands back yet.
+
 ## Step 1 — Read the file. Do not invent the roster.
 
 Call `get_file(name="{{file_name}}")`. Reads are scoped to this account; a name
