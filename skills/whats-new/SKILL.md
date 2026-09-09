@@ -119,9 +119,15 @@ timestamp. Offer these reads as what they are, the way a person reads a hearing,
 never as a consolation prize after a failed call. **Never open an answer with a paging
 plan.** A reader who asked what happened at a hearing and got a menu of ways to fetch
 it in pieces has been handed the work back, and that is the whole defect this rule
-exists to stop. If they then ask for the verbatim record end to end, say plainly that
-it arrives in bounded pages and that a single downloadable document is not something
-this surface hands back yet.
+exists to stop. And if they then ask for the verbatim record end to end, that IS
+something this surface hands back: `event_transcript_document(scheduled_event_id=...)`
+assembles the whole captured transcript into one Markdown file, stores it, and returns
+a signed link that opens in a browser and works for seven days. None of it crosses this
+conversation, so the cap does not apply and there is no paging to explain. Two things
+to say when you hand the link over, because the file travels without you: the link is a
+bearer capability, so anyone it is forwarded to can read the document until it expires;
+and where the sitting has a published official record, the document indexes it and does
+not reproduce it, because that record is licence-quarantined.
 
 ## What is actually in the corpus
 
