@@ -175,13 +175,18 @@ plan.** A reader who asked what happened at a hearing and got a menu of ways to 
 it in pieces has been handed the work back, and that is the whole defect this rule
 exists to stop. And if they then ask for the verbatim record end to end, that IS
 something this surface hands back: `event_transcript_document(scheduled_event_id=...)`
-assembles the whole captured transcript into one Markdown file, stores it, and returns
-a signed link that opens in a browser and works for seven days. None of it crosses this
-conversation, so the cap does not apply and there is no paging to explain. Two things
-to say when you hand the link over, because the file travels without you: the link is a
-bearer capability, so anyone it is forwarded to can read the document until it expires;
-and where the sitting has a published official record, the document indexes it and does
-not reproduce it, because that record is licence-quarantined.
+assembles the whole captured transcript and gives you links to it. **It comes back in
+two formats and the first one, marked `primary`, is the one to hand over: a web page
+that opens in a browser**, with every turn anchored, a filter by speaker or by what was
+said, and a link to the video beside each turn. The second is the same document as a
+Markdown file, for a reader who wants to keep, forward or diff the text. Each link
+works for seven days. So offer it as a page somebody opens and reads, not as a file
+they download. None of it crosses this conversation, so the cap does not apply and
+there is no paging to explain. Two things to say when you hand the link over, because
+the document travels without you: the link is a bearer capability, so anyone it is
+forwarded to can read it until it expires; and where the sitting has a published
+official record, the document indexes it and does not reproduce it, because that record
+is licence-quarantined.
 
 ## What is actually in the corpus
 
