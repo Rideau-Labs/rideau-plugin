@@ -64,13 +64,26 @@ the retrieval date on the clause, not in a footnote at the bottom. The registry 
 the same treatment: a lobbying communication report is what a registrant *filed*,
 not an independently verified account of what happened in the room.
 
-**4 — Empty is an answer, and often the right one.** The House of Commons is
-adjourned for most of the calendar year. `live_events()` returning an empty list and
-`upcoming_events()` coming back thin are correct during a recess, not a malfunction.
-Say "the House is not sitting; nothing scheduled in this window" and move to the
-corpora that keep moving through an adjournment — the lobbying registry, the
-procurement feed and the media corpus all do. Never manufacture chamber activity to
-fill a heading, and never present a recess as a finding.
+**4 — Empty is an answer, and often the right one, but say when it ends.** The House
+of Commons is adjourned for most of the calendar year. `live_events()` returning an
+empty list and `upcoming_events()` coming back thin are correct during a recess, not a
+malfunction. Say "the House is not sitting" and move to the corpora that keep moving
+through an adjournment: the lobbying registry, the procurement feed and the media
+corpus all do. Never manufacture chamber activity to fill a heading, and never present
+a recess as a finding.
+
+⚠️ **"Check back closer to the return" is not good enough, because we hold the return
+date.** `chamber_calendar()` reads the statutory sitting calendar ourcommons.ca
+publishes (a different object from the broadcast schedule the event tools read) and
+answers when the House next sits, how far away that is and when it rose. `upcoming()`
+already carries it as its `chamber_status` section. So the honest recess sentence has
+the shape "the House is adjourned and returns <weekday> <date>, N days away", with
+that tool's own `source_url` attached under rule 1. Take the date from the tool on the
+day, never from this paragraph or from memory: the calendar is refreshed roughly
+yearly, and a remembered sitting date is exactly the error this rule exists to stop.
+Two of that tool's five statuses are measurements (`sitting`, `adjourned`);
+`outside_coverage`, `no_calendar` and `invalid_date` all mean the calendar could not
+answer, and reporting any of them as a recess asserts an adjournment nobody measured.
 
 **5 — A refused tool is entitlement, not breakage — the exception, not the new-account default.**
 Access is granted per corpus. A new account can already reach hansard, tender, radar
