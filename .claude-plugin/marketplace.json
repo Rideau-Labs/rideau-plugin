@@ -12,7 +12,7 @@
     {
       "name": "rideau",
       "source": "./",
-      "description": "Canadian legislative and policy intelligence: what Parliament said, who is lobbying, what government is buying, and what the press reported — with the eight Rideau government-relations workflows as skills.",
+      "description": "Canadian legislative and policy intelligence: what Parliament said, who is lobbying, what government is buying, and what the press reported — with the eight Rideau government-relations workflows as skills, and Playbook (the campaign workspace over the graph, where a Playbook is built from a brief).",
       "version": "0.1.0",
       "author": {
         "name": "Rideau Labs",
