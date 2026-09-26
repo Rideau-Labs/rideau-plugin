@@ -223,13 +223,20 @@ whoever handles scheduling.
 - Run it instead of mining the lobbying registry for staff names. Each staffer already
   carries the communications that named them (`lobbied`), which extends step 4's
   picture to the office in the same call.
+- State `confirmed` reports as fact: they are dated while the directory listed the
+  staffer in this office. `unconfirmed` reports were matched by name and department
+  but are dated before `first_seen`, so say so in plain words: "the registry lists 12
+  reports naming someone of that name there before our records of them begin, so
+  likely them, not certain". Never rank a staffer as the most lobbied, or say what
+  files they handle, on unconfirmed reports alone.
 - `last_seen` is the latest date the directory confirmed someone in the role;
   `first_seen` is not a start date. `current` means listed in the latest directory
   snapshot, not verified employed, so write "listed as chief of staff", not "is".
 - Give an email only where the tool returns one. A null `email` means the directory
   publishes none (every MP office, many minister's offices): never compose or
-  pattern-match an address, and do not try to fetch the GEDS page, which returns
-  nothing to a fetch. Point to the office's public contact channels instead.
+  pattern-match an address, never mention an address format, and do not try to
+  fetch the GEDS page, which returns nothing to a fetch. Point only to the office's
+  public contact channels.
 - An MPP or a senator comes back in `unmatched`, not as a staff list: this covers
   federal ministers' and MPs' offices only. Say so in one line and move on.
 

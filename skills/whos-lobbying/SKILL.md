@@ -197,10 +197,12 @@ department, `graph_office_staff(portfolio="<portfolio fragment>")` returns the s
 of the minister's office that answers for it, by role, with each staffer's own
 lobbying communications already attached. Use it whenever the question is who to
 contact or who the lobbyists are meeting in that office; do not rebuild the staff list
-from the DPOH names in A3. Pass `role_families` to keep the answer small when only
-some roles matter. `first_seen` is not a start date and `current` means listed in the
-latest directory snapshot, not verified employed. A portfolio with no directory office
-comes back in `unmatched` with the reason; report that rather than an empty office.
+from the DPOH names in A3. Only `confirmed` reports are facts about a staffer;
+`unconfirmed` ones are likely them but not certain, and say so. Pass `role_families` to
+keep the answer small when only some roles matter. `first_seen` is not a start date
+and `current` means listed in the latest directory snapshot, not verified employed. A
+portfolio with no directory office comes back in `unmatched` with the reason; report
+that rather than an empty office.
 
 ## Branch B — {{subject_or_org}} as an organization
 
