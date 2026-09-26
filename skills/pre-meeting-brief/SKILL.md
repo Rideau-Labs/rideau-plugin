@@ -212,7 +212,28 @@ captured window. Then say which windows you searched.
   individual. Reporting an Ontario member as un-lobbied because a federal tool
   returned nothing is the worst available outcome of this step.
 
-**Step 5 — What the press has been saying. Optional, and only if it earns space.**
+**Step 5 — Who runs their office, and who to go through. Federal ministers and MPs.**
+`graph_office_staff(people=["<person_id from step 1>"], role_families=["chief_of_staff",
+"policy", "parliamentary_affairs", "stakeholder_relations", "operations_scheduling"])`
+returns the staff of every office this person is principal of: the minister's office
+for each current portfolio, and their MP office. A meeting is requested and followed
+up through these people, so name the chief of staff, the policy lead on the file and
+whoever handles scheduling.
+
+- Run it instead of mining the lobbying registry for staff names. Each staffer already
+  carries the communications that named them (`lobbied`), which extends step 4's
+  picture to the office in the same call.
+- `last_seen` is the latest date the directory confirmed someone in the role;
+  `first_seen` is not a start date. `current` means listed in the latest directory
+  snapshot, not verified employed, so write "listed as chief of staff", not "is".
+- Give an email only where the tool returns one. A null `email` means the directory
+  publishes none (every MP office, many minister's offices): never compose or
+  pattern-match an address, and do not try to fetch the GEDS page, which returns
+  nothing to a fetch. Point to the office's public contact channels instead.
+- An MPP or a senator comes back in `unmatched`, not as a staff list: this covers
+  federal ministers' and MPs' offices only. Say so in one line and move on.
+
+**Step 6 — What the press has been saying. Optional, and only if it earns space.**
 `radar_query_items(keyword="{{person}}", since=..., limit=25)`.
 
 Set `exclude_wire` true before you count who covered something, and collapse on
@@ -258,6 +279,9 @@ One page. Assume it is read standing up, minutes before the meeting.
   linked. Prefer their own words on the file at hand over general activity.
 - **Who is in their ear** — the lobbying picture, grouped by client, with dates and
   links. Name the direction explicitly so a reader cannot misread it.
+- **Who to go through** — the chief of staff, the policy lead on the file and
+  scheduling, each with title, office, email where one is published, and the date
+  the directory last listed them.
 - **What to expect in the room** — your read, clearly labelled as inference and
   resting only on what you cited above.
 - **What we could not establish** — the honest gaps. A brief that admits two gaps is

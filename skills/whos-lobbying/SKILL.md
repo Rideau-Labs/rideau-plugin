@@ -192,6 +192,16 @@ that appears in every variant of the department's name.
 limit=...)`, which returns every DPOH named on each report, its subjects, and a link
 to the registry record.
 
+**A4 — the minister's office behind it, and who to contact there.** For a federal
+department, `graph_office_staff(portfolio="<portfolio fragment>")` returns the staff
+of the minister's office that answers for it, by role, with each staffer's own
+lobbying communications already attached. Use it whenever the question is who to
+contact or who the lobbyists are meeting in that office; do not rebuild the staff list
+from the DPOH names in A3. Pass `role_families` to keep the answer small when only
+some roles matter. `first_seen` is not a start date and `current` means listed in the
+latest directory snapshot, not verified employed. A portfolio with no directory office
+comes back in `unmatched` with the reason; report that rather than an empty office.
+
 ## Branch B — {{subject_or_org}} as an organization
 
 **B1 — the substring sweep, which is the real answer.**
