@@ -1,6 +1,6 @@
 ---
 name: whats-new
-description: "What changed on a file since a date. The \"I was away, catch me up\" sweep, routed from a saved file. A file's targets are already-resolved graph nodes, so each type goes to the tools that can use it. Named entities remain as a first-run path for someone who has no file yet. Both empty is a refusal — this does not invent a watchlist. Use for questions about Canadian federal politics, Parliament, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
+description: "What changed on a file since a date. The \"I was away, catch me up\" sweep, routed from a saved file. A file's targets are already-resolved graph nodes, so each type goes to the tools that can use it. Named entities remain as a first-run path for someone who has no file yet. Both empty is a refusal — this does not invent a watchlist. Use for questions about Canadian politics in federal Parliament or the Ontario Legislature, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
 metadata:
   rideau-source-prompt: whats_new
   rideau-generator: scripts/generate_plugin_skills.py
@@ -151,6 +151,15 @@ is licence-quarantined.
 
 Know this before answering; say it out loud only where it changes the answer.
 
+- **Rideau covers federal Parliament and the Ontario Legislature, both by default.**
+  Narrow only when the reader names a place: `search()`, `lookup()`, `whats_new()`,
+  `upcoming()` and `live()` take `jurisdictions` of `["federal"]` or `["ontario"]`, and
+  every row they return says which legislature it came from. Say which one when you
+  report a result.
+- **Some sources are federal only today:** bills and votes, live transcription and
+  speaker identification, the sitting calendar, procurement, and lobbying
+  communication reports. Ontario lobbying is registrations only. An empty answer
+  from one of these for Ontario means not collected yet, never that nothing happened.
 - **Real-time captured transcript is the federal House and its committees.** For a
   federal person, `recent_speeches_by()` and `person_appearances()` return captured
   proceedings, which is what makes this corpus days-to-weeks ahead of the official

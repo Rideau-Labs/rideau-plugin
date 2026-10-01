@@ -1,6 +1,6 @@
 ---
 name: getting-started
-description: "What Rideau is, and what to ask first. The platform introducing itself: the four corpora, and the first questions worth asking. Grounds the introduction in live corpus statistics rather than describing the tool surface. Use for questions about Canadian federal politics, Parliament, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
+description: "What Rideau is, and what to ask first. The platform introducing itself: the four corpora, and the first questions worth asking. Grounds the introduction in live corpus statistics rather than describing the tool surface. Use for questions about Canadian politics in federal Parliament or the Ontario Legislature, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
 metadata:
   rideau-source-prompt: getting_started
   rideau-generator: scripts/generate_plugin_skills.py
@@ -26,14 +26,16 @@ answer in the same reply.
 
 ## What this is
 
-Rideau is a **Canadian legislative and policy intelligence knowledge graph**, served
-where the work already happens rather than in another web app. It is one graph over
-four corpora that a government relations file actually needs:
+Rideau is a **Canadian legislative and policy intelligence knowledge graph** over
+federal Parliament and the Legislative Assembly of Ontario, served where the work
+already happens rather than in another web app. It is one graph over four corpora
+that a government relations file actually needs:
 
-- **What government says** — parliamentary proceedings. Real-time captured
+- **What government says**: proceedings in both legislatures. Real-time captured
   transcript of the federal House and its committees, days to weeks ahead of the
   official record, plus the official record itself across federal and Ontario.
-  Events, sittings, utterances, bills, votes, committees, people.
+  Events, sittings, utterances, committees and people in both; bills and votes are
+  federal today.
 - **What government buys** — federal procurement: tender notices, award notices,
   contracts and the recompete horizon.
 - **Who is lobbying whom** — the federal lobbying registry (communication reports,
@@ -192,6 +194,15 @@ is licence-quarantined.
 
 Know this before answering; say it out loud only where it changes the answer.
 
+- **Rideau covers federal Parliament and the Ontario Legislature, both by default.**
+  Narrow only when the reader names a place: `search()`, `lookup()`, `whats_new()`,
+  `upcoming()` and `live()` take `jurisdictions` of `["federal"]` or `["ontario"]`, and
+  every row they return says which legislature it came from. Say which one when you
+  report a result.
+- **Some sources are federal only today:** bills and votes, live transcription and
+  speaker identification, the sitting calendar, procurement, and lobbying
+  communication reports. Ontario lobbying is registrations only. An empty answer
+  from one of these for Ontario means not collected yet, never that nothing happened.
 - **Real-time captured transcript is the federal House and its committees.** For a
   federal person, `recent_speeches_by()` and `person_appearances()` return captured
   proceedings, which is what makes this corpus days-to-weeks ahead of the official

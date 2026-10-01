@@ -1,6 +1,6 @@
 ---
 name: committee-prep
-description: "Prep pack for a committee appearance. Prep pack for an appearance: members, the study, past witness Q&A, positions. Resolves the committee on the graph, reads hansard's studies and hearings, and caps witness and member lookups so the pack arrives before the hearing. Use for questions about Canadian federal politics, Parliament, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
+description: "Prep pack for a committee appearance. Prep pack for an appearance: members, the study, past witness Q&A, positions. Resolves the committee on the graph, reads hansard's studies and hearings, and caps witness and member lookups so the pack arrives before the hearing. Use for questions about Canadian politics in federal Parliament or the Ontario Legislature, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
 metadata:
   rideau-source-prompt: committee_prep
   rideau-generator: scripts/generate_plugin_skills.py
@@ -168,11 +168,14 @@ still has the studies, the hearings and the spoken record.
 
 **Ontario vs federal is a tool split, not a filter.** Graph resolve works for
 Queen's Park (`on:GA`, `body` of `on-assembly`). Hansard's `live_events()`,
-`upcoming_events()`, `get_committee()`, `list_committees()` and
-`search_utterances()` are **federal only** (House and Senate). They return `[]`
-during a Queen's Park sitting. Empty from those five is **not collected here**,
-not "nothing scheduled" and not "no Q&A". `find_events()` and `get_event()` are
-all-jurisdiction and are the Ontario appearance and hearing path. If resolved
+`upcoming_events()`, `get_committee()` and `list_committees()` are **federal
+only** (House and Senate). They return `[]` during a Queen's Park sitting. Empty
+from those four is **not collected here**, not "nothing scheduled" and not "no
+Q&A". `search_utterances()` covers every captured legislature by default and takes
+`jurisdiction` to narrow; Queen's Park speech is captured from October 27, 2026, so
+an empty Ontario speech search before then is not collected here either.
+`find_events()` and `get_event()` are all-jurisdiction and are the Ontario
+appearance and hearing path. If resolved
 `body` is `on-assembly`, or the acronym starts with `on:`, skip the federal
 tools in steps 2–5 and use the Ontario branch of each step.
 
@@ -249,9 +252,11 @@ Do **not** pull a transcript for every meeting. If you need Q&A on the record:
   captured transcript and returns a link to it as a web page, good for seven
   days. Hand over the entry marked `primary`; the Markdown copy beside it is for
   a reader who wants the text as a file.
-- **Ontario:** **do not** call `search_utterances()` — it is federal captured
-  transcript only and comes back empty for `on:GA`. Q&A is the official moments
-  on `get_event()`.
+- **Ontario:** one `search_utterances(query="<study or witness org>",
+  jurisdiction="on-assembly", limit=25)` reads captured Queen's Park speech, which
+  starts October 27, 2026. Empty before then, or for a sitting not yet captured, is
+  not collected here, not "no Q&A": the Q&A is then the official moments on
+  `get_event()`.
 
 ⚠️ **Two ways `search_utterances()` returns a confident zero on a meeting it holds.**
 Both measured against a June 2026 SECU sitting on Bill C-22:
@@ -285,7 +290,8 @@ line. Instead:
   or openparl slug, **not** the graph `person_id` on the membership row. Resolve
   the name with `find_persons(query="<display_name>")` and use that id; passing
   a graph UUID into a hansard tool is a silent miss.
-- **Ontario:** skip `search_utterances()`. Member positions come from the
+- **Ontario:** reuse step 4's `search_utterances(..., jurisdiction="on-assembly")`
+  if it returned rows. Otherwise member positions come from the
   hearings you already opened with `get_event()`, or from
   `find_events(jurisdiction="on-assembly", committee_acronym="<acronym>",
   query="<the study or the file>", since=..., until=..., limit=10)`. At most
@@ -299,6 +305,15 @@ line. Instead:
 
 Know this before answering; say it out loud only where it changes the answer.
 
+- **Rideau covers federal Parliament and the Ontario Legislature, both by default.**
+  Narrow only when the reader names a place: `search()`, `lookup()`, `whats_new()`,
+  `upcoming()` and `live()` take `jurisdictions` of `["federal"]` or `["ontario"]`, and
+  every row they return says which legislature it came from. Say which one when you
+  report a result.
+- **Some sources are federal only today:** bills and votes, live transcription and
+  speaker identification, the sitting calendar, procurement, and lobbying
+  communication reports. Ontario lobbying is registrations only. An empty answer
+  from one of these for Ontario means not collected yet, never that nothing happened.
 - **Real-time captured transcript is the federal House and its committees.** For a
   federal person, `recent_speeches_by()` and `person_appearances()` return captured
   proceedings, which is what makes this corpus days-to-weeks ahead of the official

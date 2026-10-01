@@ -1,6 +1,6 @@
 ---
 name: whos-lobbying
-description: "Who is lobbying on a subject or organization. Who is lobbying a department, or what an organization is lobbying about. Written around the fragmentation trap that makes a naive lookup under-report: the registry mints one organization node per client number, so one company is routinely several nodes and an exact-match search silently misses most of its activity. Use for questions about Canadian federal politics, Parliament, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
+description: "Who is lobbying on a subject or organization. Who is lobbying a department, or what an organization is lobbying about. Written around the fragmentation trap that makes a naive lookup under-report: the registry mints one organization node per client number, so one company is routinely several nodes and an exact-match search silently misses most of its activity. Use for questions about Canadian politics in federal Parliament or the Ontario Legislature, lobbying, procurement or policy media, answered against the Rideau Labs MCP server."
 metadata:
   rideau-source-prompt: whos_lobbying
   rideau-generator: scripts/generate_plugin_skills.py
@@ -252,6 +252,15 @@ upward, so the most senior entry is the likeliest mistake.
 
 Know this before answering; say it out loud only where it changes the answer.
 
+- **Rideau covers federal Parliament and the Ontario Legislature, both by default.**
+  Narrow only when the reader names a place: `search()`, `lookup()`, `whats_new()`,
+  `upcoming()` and `live()` take `jurisdictions` of `["federal"]` or `["ontario"]`, and
+  every row they return says which legislature it came from. Say which one when you
+  report a result.
+- **Some sources are federal only today:** bills and votes, live transcription and
+  speaker identification, the sitting calendar, procurement, and lobbying
+  communication reports. Ontario lobbying is registrations only. An empty answer
+  from one of these for Ontario means not collected yet, never that nothing happened.
 - **Real-time captured transcript is the federal House and its committees.** For a
   federal person, `recent_speeches_by()` and `person_appearances()` return captured
   proceedings, which is what makes this corpus days-to-weeks ahead of the official
