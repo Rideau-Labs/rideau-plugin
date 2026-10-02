@@ -222,6 +222,15 @@ each office belongs to. Ontario staff carry no lobbying contact data (`lobbied` 
 null with its reason), because Ontario lobbying registrations do not record who was
 contacted: never report that as no lobbying.
 
+**A5 — the officials who run it.** For the public servants rather than the political
+office, `graph_department_officials(institution="{{subject_or_org}}")` lists the deputy
+minister, ADMs, directors general, executive directors and directors, ranked by level
+and grouped by branch, for a federal department or an Ontario ministry alike. Pass
+`branch` with a word from the file to reach the branch that owns it, and `levels` to
+keep only the senior tiers. Each official names its legislature and its directory's
+credit line; report both. Give an email only where one is returned, and never
+construct one.
+
 ## Branch B — {{subject_or_org}} as an organization
 
 **B1 — the substring sweep, which is the real answer.**

@@ -245,6 +245,21 @@ whoever handles scheduling.
 - An MPP or a senator comes back in `unmatched`, not as a staff list: this covers
   federal ministers' and MPs' offices only. Say so in one line and move on.
 
+**Step 5b — The officials behind the file. Ministers, federal or Ontario.**
+When the person is a minister, or the meeting is about a file their department runs,
+`graph_department_officials(institution="<their department or ministry>",
+levels=["deputy_minister", "assistant_deputy_minister", "director_general",
+"executive_director"], branch="<a word from the file, optional>")` names the public
+servants who run it: the deputy minister, the ADM whose branch owns the file, and the
+directors general or executive directors under them. These are the people a follow-up
+briefing at the official level goes to.
+
+- Each official says which legislature it belongs to and carries its directory's
+  credit line; keep both when you report them.
+- Everyone returned is listed in the directory's latest snapshot, not verified
+  employed: write "listed as". `acting` marks an acting holder.
+- Give an email only where the tool returns one, on the same rule as step 5.
+
 **Step 6 — What the press has been saying. Optional, and only if it earns space.**
 `radar_query_items(keyword="{{person}}", since=..., limit=25)`.
 
@@ -312,7 +327,8 @@ One page. Assume it is read standing up, minutes before the meeting.
   links. Name the direction explicitly so a reader cannot misread it.
 - **Who to go through** — the chief of staff, the policy lead on the file and
   scheduling, each with title, office, email where one is published, and the date
-  the directory last listed them.
+  the directory last listed them. For a minister, add the deputy minister and the
+  ADM whose branch owns the file, from step 5b.
 - **What to expect in the room** — your read, clearly labelled as inference and
   resting only on what you cited above.
 - **What we could not establish** — the honest gaps. A brief that admits two gaps is
