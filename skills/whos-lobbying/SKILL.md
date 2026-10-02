@@ -202,7 +202,11 @@ from the DPOH names in A3. Only `confirmed` reports are facts about a staffer;
 keep the answer small when only some roles matter. `first_seen` is not a start date
 and `current` means listed in the latest directory snapshot, not verified employed. A
 portfolio with no directory office comes back in `unmatched` with the reason; report
-that rather than an empty office.
+that rather than an empty office. The portfolio lookup returns both governments'
+offices, federal and Ontario, unless you pass `jurisdictions`; say which government
+each office belongs to. Ontario staff carry no lobbying contact data (`lobbied` is
+null with its reason), because Ontario lobbying registrations do not record who was
+contacted: never report that as no lobbying.
 
 ## Branch B — {{subject_or_org}} as an organization
 
