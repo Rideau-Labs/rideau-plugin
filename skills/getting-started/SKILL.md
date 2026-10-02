@@ -69,7 +69,8 @@ one straight away:
    each one linked to the registry.
 2. **"Who has been lobbying <a department> this year?"** —
    `graph_resolve_institution()` then `tender_whos_lobbying()`, giving organizations
-   ranked by reported communications with their subject matters.
+   ranked by reported communications with their subject matters, and for an Ontario
+   ministry, by the registrations naming it.
 3. **"What changed on <my file> while I was away?"** — a dated sweep across all four
    corpora at once. This is the question the graph exists for.
 4. **"What is happening in Parliament right now?"** — `live_events()` and
@@ -225,10 +226,16 @@ Know this before answering; say it out loud only where it changes the answer.
 - **Federal lobbying is fetched daily but the registry publishes weekly.** The
   corpus can legitimately sit several days behind lobbycanada.gc.ca and still be
   perfectly healthy. Read the `freshness` block before calling a gap a finding.
-- **Ontario lobbying is a separate registry with separate tools.**
-  `tender_organization_lobbyists()` and `tender_lobbyist_registrations()` answer
-  Ontario; `tender_search_lobbying_communications()` and `tender_whos_lobbying()`
-  answer federal. They are not interchangeable and neither covers the other.
+- **Ontario lobbying is a separate registry, and it is reachable.** Ontario
+  publishes registrations (who is registered to lobby which ministry, agency or
+  minister's office, for whom, through which firm), never meeting reports.
+  `tender_whos_lobbying()` answers both registries by default: `organizations` is
+  federal, ranked by communication reports, and `ontario` ranks organizations by
+  the in-force registrations naming the institution. `tender_get_lobbying_registrations()`
+  covers both; `tender_organization_lobbyists()` and `tender_lobbyist_registrations()`
+  are Ontario (in-house rosters, and consultant lobbyists in
+  `consultant_registrations`). `tender_search_lobbying_communications()` is federal
+  only, so an empty answer from it for Ontario says nothing about Ontario lobbying.
 
 ## Tone
 

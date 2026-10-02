@@ -209,10 +209,13 @@ captured window. Then say which windows you searched.
   of a federal communication report naming the office holder met. So if step 1
   resolved to `on-assembly`, say that plainly rather than reporting no lobbying
   activity, and answer the question from the other side — who is registered to lobby
-  on the file — with `tender_organization_lobbyists(organization="...")` for a given
-  employer or client, and `tender_lobbyist_registrations(name="...")` for a named
-  individual. Reporting an Ontario member as un-lobbied because a federal tool
-  returned nothing is the worst available outcome of this step.
+  on the file: `tender_whos_lobbying(institution="<their ministry>")`, whose
+  `ontario` block ranks who is registered to lobby it (an Ontario minister's own
+  `graph_whos_lobbying_person()` answer already carries `ontario_registrations`),
+  `tender_organization_lobbyists(organization="...")` for a given employer or client,
+  and `tender_lobbyist_registrations(name="...")` for a named individual. Reporting
+  an Ontario member as un-lobbied because a federal tool returned nothing is the
+  worst available outcome of this step.
 
 **Step 5 — Who runs their office, and who to go through. Federal ministers and MPs.**
 `graph_office_staff(people=["<person_id from step 1>"], role_families=["chief_of_staff",
@@ -285,10 +288,16 @@ Know this before answering; say it out loud only where it changes the answer.
 - **Federal lobbying is fetched daily but the registry publishes weekly.** The
   corpus can legitimately sit several days behind lobbycanada.gc.ca and still be
   perfectly healthy. Read the `freshness` block before calling a gap a finding.
-- **Ontario lobbying is a separate registry with separate tools.**
-  `tender_organization_lobbyists()` and `tender_lobbyist_registrations()` answer
-  Ontario; `tender_search_lobbying_communications()` and `tender_whos_lobbying()`
-  answer federal. They are not interchangeable and neither covers the other.
+- **Ontario lobbying is a separate registry, and it is reachable.** Ontario
+  publishes registrations (who is registered to lobby which ministry, agency or
+  minister's office, for whom, through which firm), never meeting reports.
+  `tender_whos_lobbying()` answers both registries by default: `organizations` is
+  federal, ranked by communication reports, and `ontario` ranks organizations by
+  the in-force registrations naming the institution. `tender_get_lobbying_registrations()`
+  covers both; `tender_organization_lobbyists()` and `tender_lobbyist_registrations()`
+  are Ontario (in-house rosters, and consultant lobbyists in
+  `consultant_registrations`). `tender_search_lobbying_communications()` is federal
+  only, so an empty answer from it for Ontario says nothing about Ontario lobbying.
 
 ## The brief itself
 

@@ -160,8 +160,9 @@ between spellings.
 "Who is lobbying on X" is two different queries depending on what X is.
 
 - **X is a government institution** — a department, agency or portfolio (ISED,
-  Health Canada, Transport Canada). The answer is the organizations lobbying *into*
-  it. Go to branch A.
+  Health Canada, Transport Canada), or an Ontario ministry, agency or minister's
+  office (Ministry of Energy and Mines, Ontario Energy Board). The answer is the
+  organizations lobbying *into* it. Go to branch A.
 - **X is a company, association or coalition.** The answer is what that organization
   lobbies about, whom it retained, and whom it met. Go to branch B.
 - **X is a person.** This is the wrong prompt — `graph_whos_lobbying_person()` answers
@@ -183,14 +184,27 @@ free-text escape hatch, not a body); that is a different answer from "not found"
 should be reported as such.
 
 **A2.** `tender_whos_lobbying(institution="{{subject_or_org}}", since=..., limit=...)`
-returns organizations ranked by reported communications, each with its date range
-and most frequent subject matters. `institution` is a fragment, so pass the fragment
-that appears in every variant of the department's name.
+answers both registries in one call. `organizations` is federal: ranked by reported
+communications, each with its date range and most frequent subject matters.
+`ontario` is Ontario: organizations ranked by the in-force registrations naming the
+institution as a target, weighted so a registration aimed at a few institutions counts
+more than one listing dozens (`targeted_score`), each with filing dates, declared
+subject matters, its consulting firms and registration numbers. Ontario publishes no
+meeting reports, so report the Ontario block as who is registered to lobby it, never
+as who met it. With no jurisdiction named, `limit` is shared between the two blocks.
+`institution` is a fragment, so pass the fragment that appears in every
+variant of the department's name. In Ontario a minister's office is a separate target
+from its ministry ("Office of the Minister of Energy and Mines" beside "Ministry of
+Energy and Mines"): pass the shared fragment ("Energy and Mines") and read
+`ontario.institutions_matched` (every name it reached) before reporting.
 
-**A3.** Drill into whatever the ranking surfaces with
+**A3.** Drill into whatever the ranking surfaces. Federal:
 `tender_search_lobbying_communications(institution="...", since=..., until=...,
 limit=...)`, which returns every DPOH named on each report, its subjects, and a link
-to the registry record.
+to the registry record. Ontario: `tender_get_lobbying_registrations(
+registration_number="<a number from the ranking>")` for one registration's lobbyist,
+every institution it targets and its declared goals, or `client_organization=
+"<organization>", jurisdiction="ontario"` for all of an organization's.
 
 **A4 — the minister's office behind it, and who to contact there.** For a federal
 department, `graph_office_staff(portfolio="<portfolio fragment>")` returns the staff
@@ -287,10 +301,16 @@ Know this before answering; say it out loud only where it changes the answer.
 - **Federal lobbying is fetched daily but the registry publishes weekly.** The
   corpus can legitimately sit several days behind lobbycanada.gc.ca and still be
   perfectly healthy. Read the `freshness` block before calling a gap a finding.
-- **Ontario lobbying is a separate registry with separate tools.**
-  `tender_organization_lobbyists()` and `tender_lobbyist_registrations()` answer
-  Ontario; `tender_search_lobbying_communications()` and `tender_whos_lobbying()`
-  answer federal. They are not interchangeable and neither covers the other.
+- **Ontario lobbying is a separate registry, and it is reachable.** Ontario
+  publishes registrations (who is registered to lobby which ministry, agency or
+  minister's office, for whom, through which firm), never meeting reports.
+  `tender_whos_lobbying()` answers both registries by default: `organizations` is
+  federal, ranked by communication reports, and `ontario` ranks organizations by
+  the in-force registrations naming the institution. `tender_get_lobbying_registrations()`
+  covers both; `tender_organization_lobbyists()` and `tender_lobbyist_registrations()`
+  are Ontario (in-house rosters, and consultant lobbyists in
+  `consultant_registrations`). `tender_search_lobbying_communications()` is federal
+  only, so an empty answer from it for Ontario says nothing about Ontario lobbying.
 
 ## The answer
 
