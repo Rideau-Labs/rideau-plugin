@@ -167,8 +167,10 @@ Two things to read correctly:
   the 2013 order and Willowdale under the 2023 one, and the district names move too.
 - `riding_note` ships on every profile and explains how to read the list, including
   which of three legitimate reasons an empty one has. A senator represents no
-  district; an MPP represents an Ontario district this graph does not hold. Quote
-  the note's reasoning rather than reporting `[]` as a gap.
+  district. An MPP's row is an Ontario provincial district (`jurisdiction` `on`),
+  never the federal district that shares its name, and it comes from the
+  Legislative Assembly's member list rather than from votes. Quote the note's
+  reasoning rather than reporting `[]` as a gap.
 
 Office titles are time-bounded roles, so say "Minister of X from date to date", not
 "the Minister of X", unless the role is live and you can show it.
