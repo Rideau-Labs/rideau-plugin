@@ -199,10 +199,14 @@ Know this before answering; say it out loud only where it changes the answer.
   `upcoming()` and `live()` take `jurisdictions` of `["federal"]` or `["ontario"]`, and
   every row they return says which legislature it came from. Say which one when you
   report a result.
-- **Some sources are federal only today:** bills and votes, live transcription and
-  speaker identification, the sitting calendar, procurement, and lobbying
-  communication reports. Ontario lobbying is registrations only. An empty answer
-  from one of these for Ontario means not collected yet, never that nothing happened.
+- **Some sources are federal only today:** votes, live transcription and speaker
+  identification, procurement, and lobbying communication reports. Ontario lobbying
+  is registrations only. An empty answer from one of these for Ontario means not
+  collected yet, never that nothing happened. `upcoming()`'s chamber status (is the
+  chamber sitting, when does it next sit) and bills now cover both legislatures;
+  its forward list of scheduled events does not yet, and answers `held` for Ontario
+  rather than a zero. `live()` stays federal only until Queen's Park capture starts
+  (MJE-58).
 - **Real-time captured transcript is the federal House and its committees.** For a
   federal person, `recent_speeches_by()` and `person_appearances()` return captured
   proceedings, which is what makes this corpus days-to-weeks ahead of the official
