@@ -11,7 +11,7 @@ and what the **press** reports. This plugin connects your assistant to it and ad
 ## Home screen
 
 In a host that supports Plugin Extensions, Rideau opens a home with a request field,
-workflow starters, Discover stories, your Playbooks and recent Files. Browse the full
+workflow starters, Discover stories, your Playbooks and recent Folders. Browse the full
 13-workflow catalogue, read a sourced story, or continue work in chat. Account reads
 use the same Rideau permissions as the rest of the connector. Other clients retain
 the skills and ordinary MCP tools. Chat handoff and scheduling depend on the host.
@@ -28,7 +28,7 @@ the skills and ordinary MCP tools. Chat handoff and scheduling depend on the hos
 | `business-development` | Find prospective clients |
 | `issue-research` | Research an issue |
 | `brief-me` | Brief me |
-| `files-and-alerts` | Manage Files and alerts |
+| `files-and-alerts` | Manage Folders and alerts |
 | `playbook` | Build or continue a Playbook |
 | `write-document` | Write or improve a document |
 | `people-search` | Find people and office staff |

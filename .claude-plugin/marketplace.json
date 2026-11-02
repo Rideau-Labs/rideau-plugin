@@ -6,14 +6,14 @@
     "url": "https://rideaulabs.com"
   },
   "metadata": {
-    "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Files and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant."
+    "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Folders and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant."
   },
   "plugins": [
     {
       "name": "rideau",
       "source": "./",
-      "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Files and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
-      "version": "0.2.0",
+      "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Folders and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
+      "version": "0.2.1",
       "author": {
         "name": "Rideau Labs",
         "url": "https://rideaulabs.com"

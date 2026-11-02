@@ -1,7 +1,7 @@
 {
   "name": "rideau",
-  "version": "0.2.0",
-  "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Files and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
+  "version": "0.2.1",
+  "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Folders and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
   "author": {
     "name": "Rideau Labs",
     "url": "https://rideaulabs.com"
@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "Rideau",
     "shortDescription": "Canadian legislative and policy intelligence, in your assistant.",
-    "longDescription": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Files and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
+    "longDescription": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Folders and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
     "developerName": "Rideau Labs",
     "category": "research",
     "capabilities": [

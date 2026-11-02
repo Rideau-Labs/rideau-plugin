@@ -1,9 +1,9 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "rideau",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "LicenseRef-RideauLabs-Proprietary",
-  "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Files and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
+  "description": "Canadian policy intelligence with 13 workflows for research, discovery, people, procurement, business development, Folders and alerts, Playbooks, documents, hearings and routines. Requires a Rideau account. Scheduling availability depends on your assistant.",
   "author": {
     "name": "Rideau Labs",
     "url": "https://rideaulabs.com"
